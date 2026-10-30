@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken");
 const pool = require("./db");
 
 const app = express();
-const PORT = Number(process.env.PORT || 3000);
+const PORT = Number(process.env.PORT || 10000);
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`StockMaster running on port ${PORT}`);
 });
