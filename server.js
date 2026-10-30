@@ -9,15 +9,8 @@ const pool = require("./db");
 
 const app = express();
 const PORT = Number(process.env.PORT || 10000);
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`StockMaster running on port ${PORT}`);
-});
-const JWT_SECRET = process.env.JWT_SECRET;
 
-if (!JWT_SECRET) {
-  console.error("Missing JWT_SECRET. Copy .env.example to .env and set a secret.");
-  process.exit(1);
-}
+const JWT_SECRET = process.env.JWT_SECRET;
 
 app.use(cors());
 app.use(express.json({ limit: "1mb" }));
