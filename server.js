@@ -324,10 +324,6 @@ async function start() {
   try {
     await pool.query("SELECT 1");
     app.listen(PORT, () => console.log(`StockMaster running at http://localhost:${PORT}`));
-  } catch (err) {
-    console.error("Could not connect to MySQL. Check your .env settings and database.sql.");
-    console.error(err.message);
-    process.exit(1);
-  }
+  } 
 }
 start();
