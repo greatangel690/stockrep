@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StockMaster — Inventory Management</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div id="toast" class="toast hidden" role="status"></div>
+
+  <main id="authView" class="auth-wrap">
+    <section class="brand-panel">
+      <div class="brand"><span class="brand-mark">▦</span> StockMaster</div>
+      <div>
+        <p class="eyebrow">SMART INVENTORY CONTROL</p>
+        <h1>Know your stock.<br>Grow your business.</h1>
+        <p class="lead">Manage products, track stock levels and record sales in one simple workspace.</p>
+        <ul class="features">
+          <li>✓ Stock levels update when sales are recorded</li>
+          <li>✓ Low-stock alerts help you plan restocking</li>
+          <li>✓ Dashboard and reports for your business</li>
+        </ul>
+      </div>
+      <small>StockMaster · Inventory made simple</small>
+    </section>
+
+    <section class="auth-main">
+      <div id="loginCard" class="auth-card">
+        <div class="brand mobile-brand"><span class="brand-mark">▦</span> StockMaster</div>
+        <h2>Welcome back</h2>
+        <p class="muted">Sign in to manage your inventory.</p>
+        <form id="loginForm">
+          <label>Email address<input id="loginEmail" type="email" autocomplete="email" required placeholder="you@business.com"></label>
+          <label>Password<input id="loginPassword" type="password" autocomplete="current-password" required placeholder="Your password"></label>
+          <button class="btn primary full" type="submit">Sign in →</button>
+        </form>
+        <p class="switch">New to StockMaster? <button class="link" id="showSignup" type="button">Create an account</button></p>
+      </div>
+
+      <div id="signupCard" class="auth-card hidden">
+        <div class="brand mobile-brand"><span class="brand-mark">▦</span> StockMaster</div>
+        <h2>Create your account</h2>
+        <p class="muted">Set up your inventory workspace.</p>
+        <form id="signupForm">
+          <label>Full name<input id="signupName" required maxlength="120" autocomplete="name" placeholder="Your full name"></label>
+          <label>Business name<input id="signupBusiness" required maxlength="160" placeholder="e.g. Grace Mini Mart"></label>
+          <label>Email address<input id="signupEmail" type="email" required autocomplete="email" placeholder="you@business.com"></label>
+          <label>Password<input id="signupPassword" type="password" minlength="8" required autocomplete="new-password" placeholder="At least 8 characters"></label>
+          <button class="btn primary full" type="submit">Create account →</button>
+        </form>
+        <p class="switch">Already registered? <button class="link" id="showLogin" type="button">Sign in</button></p>
+      </div>
+    </section>
+  </main>
+
+  <section id="appView" class="app-layout hidden">
+    <aside id="sidebar" class="sidebar">
+      <div class="brand"><span class="brand-mark">▦</span> StockMaster</div>
+      <div>
+        <p class="nav-label">WORKSPACE</p>
+        <nav class="nav">
+          <button data-page="overview" class="active"><span>▦</span> Overview</button>
+          <button data-page="products"><span>▤</span> Products & Stock</button>
+          <button data-page="sales"><span>↗</span> Sales History</button>
+          <button data-page="reports"><span>▥</span> Reports</button>
+        </nav>
+      </div>
+      <div class="sidebar-bottom">
+        <div class="profile"><span id="avatar" class="avatar">S</span><div><strong id="sideName">Your name</strong><small id="sideBusiness">Your business</small></div></div>
+        <button id="logoutBtn" class="btn outline full">↪ Log out</button>
+      </div>
+    </aside>
+    <div class="main-area">
+      <header class="topbar">
+        <div class="top-title"><button id="menuBtn" class="btn outline menu-btn" type="button">☰</button><h2 id="pageTitle">Overview</h2></div>
+        <div class="top-actions"><button id="exportBtn" class="btn outline">⇩ Export CSV</button><button id="addProductTop" class="btn primary">＋ Add product</button></div>
+      </header>
+      <main id="pageContent" class="content"></main>
+    </div>
+  </section>
+
+  <div id="modalRoot"></div>
+</body>
+</html>
