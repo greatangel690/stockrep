@@ -9,6 +9,9 @@ const pool = require("./db");
 
 const app = express();
 const PORT = Number(process.env.PORT || 3000);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`StockMaster running on port ${PORT}`);
+});
 const JWT_SECRET = process.env.JWT_SECRET;
 
 if (!JWT_SECRET) {
@@ -18,7 +21,7 @@ if (!JWT_SECRET) {
 
 app.use(cors());
 app.use(express.json({ limit: "1mb" }));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "")));
 
 function makeToken(user) {
   return jwt.sign(
