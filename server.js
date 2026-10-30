@@ -326,7 +326,6 @@ async function start() {
     app.listen(PORT, () => console.log(`StockMaster running at http://localhost:${PORT}`));
   } catch (err) {
     console.error(err.message);
-    process.exit(1);
   }
 }
 start();
