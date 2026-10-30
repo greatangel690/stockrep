@@ -320,12 +320,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: "A server error occurred. Check the terminal for details." });
 });
 
-async function start() {
-  try {
-    await pool.query("SELECT 1");
-    app.listen(PORT, () => console.log(`StockMaster running at http://localhost:${PORT}`));
-  } catch (err) {
-    console.error(err.message);
-  }
-}
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`StockMaster running on port ${PORT}`);
+});
 start();
